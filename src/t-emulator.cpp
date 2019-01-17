@@ -877,6 +877,7 @@ void Emulator::Append( char ch )
 							case 1049:
 								_savedCursor = _cursor;
 								_screen1.Clear();
+								__attribute__ ((fallthrough));
 
 							//! no break
 							case 47:
@@ -913,9 +914,9 @@ void Emulator::Append( char ch )
 								break;
 
 							case 1049:
-								RestoreCursor();
+								RestoreCursor(); //! no break
+								__attribute__ ((fallthrough));
 
-							//! no break
 							case 47:
 								_screen = &_screen0;
 								_clList.SetAll( true );

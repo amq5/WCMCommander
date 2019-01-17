@@ -1749,6 +1749,8 @@ int CmpFunc(FSNode* a, FSNode* b)
 									return isAscending ? cmpExt : -cmpExt;
 	} // if extensions match, do name comparison using current ascending mode
 	  // i.e. fall into the next case
+	__attribute__ ((fallthrough));
+	
 	case SORT_NAME:
 	{
 								int cmpName = isCaseSensitive ? a->name.Cmp(b->name) : a->name.CmpNoCase(b->name);

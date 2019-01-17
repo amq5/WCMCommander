@@ -576,6 +576,7 @@ bool OperCFThread::Unlink( FS* fs, FSPath& path, bool* skipAll )
 		{
 			case CMD_SKIPALL:
 				if ( skipAll ) { *skipAll = true; } //no break
+				__attribute__ ((fallthrough));
 
 			case CMD_SKIP:
 				return true;
@@ -604,6 +605,7 @@ bool OperCFThread::RmDir( FS* fs, FSPath& path, bool* skipAll )
 		{
 			case CMD_SKIPALL:
 				if ( skipAll ) { *skipAll = true; } //no break
+				__attribute__ ((fallthrough));
 
 			case CMD_SKIP:
 				return true;
@@ -1271,6 +1273,7 @@ bool OperCFThread::CopyLink( FS* srcFs, FSPath& srcPath, FSNode* srcNode, FS* de
 
 			case CMD_SKIPALL:
 				skipNonRegular = true;
+				return true;
 
 			case CMD_SKIP:
 				return true;
@@ -1291,6 +1294,7 @@ bool OperCFThread::CopyFile( FS* srcFs, FSPath& srcPath, FSNode* srcNode, FS* de
 		{
 			case CMD_SKIPALL:
 				skipNonRegular = true; // no break
+				return true;
 
 			case CMD_SKIP:
 				return true;
@@ -1364,6 +1368,7 @@ bool OperCFThread::CopyFile( FS* srcFs, FSPath& srcPath, FSNode* srcNode, FS* de
 		{
 			case CMD_ALL:
 				commitAll = true; //no break
+				__attribute__ ((fallthrough));
 
 			case CMD_OK:
 				out = destFs->OpenCreate( destPath, true, srcNode->st.mode, 0, &ret_err, Info() );

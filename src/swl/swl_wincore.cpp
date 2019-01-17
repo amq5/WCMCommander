@@ -301,6 +301,7 @@ namespace wal
 				{
 					SetFocus();
 				}
+				__attribute__ ((fallthrough));
 
 			case EV_MOUSE_MOVE:
 			case EV_MOUSE_RELEASE:

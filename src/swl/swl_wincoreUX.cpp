@@ -443,6 +443,7 @@ namespace wal
 
 			case DirectColor:
 				throw_msg( "DirectColor visual class is not supported" );
+				__attribute__ ((fallthrough));
 
 			default:
 				throw_msg( "Unknown visual class" );

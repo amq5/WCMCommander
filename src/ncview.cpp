@@ -981,6 +981,7 @@ void* ViewerThread( void* param )
 
 					case ViewerEvent::END:
 						toEndOnChange = true;
+						__attribute__ ((fallthrough));
 
 					//no break
 					case ViewerEvent::VTRACK:
