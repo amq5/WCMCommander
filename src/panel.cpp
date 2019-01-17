@@ -1177,8 +1177,6 @@ void PanelWin::SetCurrent( int n )
 
 void PanelWin::SetCurrent( int n, bool Shift, LPanelSelectionType* SelectType, bool SelectLastItem )
 {
-	if ( !this ) { return; }
-
 	bool SelectLast = SelectLastItem;
 
 	if ( n >= _list.Count( HideDotsInDir() ) )
