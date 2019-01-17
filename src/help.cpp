@@ -67,9 +67,9 @@ struct HelpStyle
 	unsigned bg;
 	HelpStyle(): font( 0 ), fg( 0 ), bg( 0xFFFFFF ) {}
 	HelpStyle( cfont* f, unsigned c, unsigned b ) : font( f ), fg( c ), bg( b ) {}
-	cfont* Font() { return this ? font : ( cfont* )0; }
-	unsigned Fg() { return this ? fg : 0; }
-	unsigned Bg() { return this ? bg : 0xFFFFFF; }
+	cfont* Font() { return font; }
+	unsigned Fg() { return fg; }
+	unsigned Bg() { return bg; }
 };
 
 //HelpGC сделан для кэширования операций GetTextExtents а то в X11 (со стандартными X11 фонтами) это пиздец как медленно
